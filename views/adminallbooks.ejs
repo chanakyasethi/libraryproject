@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+<div class="container">
+    <h1>Welcome Admin</h1>
+    <a href="/newbook" class="btn btn-info">Add a new Book</a>
+    <a href="/adminallbooks" class="btn btn-primary">All Books</a>
+    <a href="/admin" class="btn btn-info">Requested Books</a>
+    <h3>List of All books</h3>
+    <% if(books.length>0){ %>
+      <table id="customers">
+          <tr>
+            <th>Name of the Book</th>
+            <th></th>
+          </tr>
+          <% books.forEach(function(book){ %>
+          <tr>
+            <td><%= book.name %></td>
+            <td><form style="display:inline"  action="/bookdetails/<%=book._id%>" method="GET">                
+              <button class="btn btn-primary" style="float:right">Info</button>
+          </form></td>
+          </tr>
+          <% }) %>
+      </table>
+    <% } else{ %>
+      <h3 style="text-align:center">Bookless !!!!!</h3>
+    <% } %>
+</div>
+<% include ../partials/footer %>

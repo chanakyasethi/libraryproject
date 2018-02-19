@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+<div class="container">
+    <h1>Welcome Admin</h1>
+    <a href="/newbook" class="btn btn-info">Add a new Book</a>
+    <a href="/adminallbooks" class="btn btn-info">All Books</a>
+    <a href="/admin" class="btn btn-primary">Requested Books</a>
+    <h3>Requested books</h3>
+    <% if(books.length>0){ %>
+    <table id="customers">
+        <tr>
+          <th>Name of the Book</th>
+          <th>Requested By</th>
+          <th></th>
+        </tr>
+        <% books.forEach(function(book){ %>
+        <tr>
+          <td><a href="/bookdetails/<%= book.bookID %>"><%= book.bookname%></a></td>
+          <td><%=book.username %></td>
+          <td><form style="display:inline" action="/accept/<%=book._id%>/<%=book.userID%>?_method=DELETE" method="POST">                
+            <button class="btn btn-primary" style="float:right">Accept</button>
+        </form></td>
+        </tr>
+        <% }) %>
+        </table>
+        <% } else { %>
+            <h3 style="text-align:center">No books requested</h3>
+            <% } %>
+
+    </div>
+<% include ../partials/footer %>

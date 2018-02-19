@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h1>Are you searching for books ?</h1>
+    <% if(search && books.length >0){ %>
+                <table id="customers">
+                        <tr>
+                          <th>Name of the Book</th>
+                          <th></th>
+                        </tr>
+                        <% books.forEach(function(book){ %>
+                        <% var n = book.name.search(search); %>
+                        <% if(n>=0){ %>
+                        <tr>
+                          <td><%= book.name%></a></td>
+                          <td>
+                            <form style="display:inline"  action="/request/<%=book._id%>?_method=PUT" method="POST">                
+                                <button class="btn btn-primary" style="float:right">Issue</button>
+                            </form>   
+                        </td>
+                        </tr>
+                        <% }}) %>
+                        </table>
+       <% } else { %>   
+        <h3 style="text-align:center">Search Something Available!!</h3>
+   <% } %>
+</div>
+
+<% include ../partials/footer %>

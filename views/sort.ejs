@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h1>Sorted list</h1>
+    <% if(books.length) { %>
+        <table id="customers">
+                <tr>
+                  <th>Name of the Book</th>
+                  <th></th>
+                </tr>
+                <% for(var i=0;i<books.length;i++){ %>
+                <tr>
+                  <td><%= books[i].name%></a></td>
+                  <td>
+                    <form style="display:inline"  action="/request/<%=books[i]._id%>?_method=PUT" method="POST">                
+                        <button class="btn btn-primary" style="float:right">Issue</button>
+                    </form>   
+                </td>
+                </tr>
+                <% }} %>
+            </table> 
+
+</div>
+<% include ../partials/footer %>

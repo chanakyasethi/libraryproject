@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+<h1>List of All books</h1>
+<div class="container">
+    <div class="ui segment">
+    <div class="ui relaxed divided list">
+        <% books.forEach(function(book){ %>
+            <% issuebooks.forEach(function(issuebook){ %>
+        <div class="item">
+            <div class="content" style="font-size:1.5em">
+                <%= book.name %>
+                <% if(issuebook.bookID.equals(book._id)){ %>
+                    <form style="display:inline"  action="/request/<%=book._id%>?_method=PUT" method="POST">                
+                        <button disabled="disabled" class="btn btn-primary" style="float:right">Requested</button>
+                    </form>
+                <% } else { %>
+                    <form style="display:inline"  action="/request/<%=book._id%>?_method=PUT" method="POST">                
+                        <button  class="btn btn-primary" style="float:right">Issue</button>
+                    </form>
+                <% } %>       
+            </div>
+        </div>
+        <% })}) %>
+    </div>   
+</div>
+</div>
+<% include ../partials/footer %>

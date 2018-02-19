@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+<h1>Updatebook</h1>
+<div class="container">
+    <form action="/update/<%=book.id%>?_method=PUT" method="POST">
+        <div class="form-group">
+            <label class="form-inline">Name</label>
+            <input class="form-control " type="text" name="book[name]" value="<%=book.name%>">
+        </div>
+        <div class="form-group">
+            <label class="form-inline">Publishing Company/Publisher</label>
+            <input class="form-control " type="text" name="book[publisher]" value="<%=book.publisher%>">
+        </div>
+        <div class="form-group">
+            <label class="form-inline">Author's Name</label>
+            <input class="form-control " type="text" name="book[author]" value="<%=book.author%>">
+        </div>
+        <div class="form-group">
+            <label class="form-inline">Number of Books</label>
+            <input class="form-control " type="text" name="book[units]" value="<%=book.units%>">
+        </div>
+        <button class="btn btn-primary" type="submit" >Update</button>
+    </form>
+</div>
+<% include ../partials/footer %>

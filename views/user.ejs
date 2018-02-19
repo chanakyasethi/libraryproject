@@ -1,0 +1,11 @@
+<% include ../partials/header %>
+<div class="container">
+    <h1>Welcome <%=currentUser.name%> !!</h1>
+    <form style="display:inline" class="form-group" action="/allbooks" method="GET">
+        <button class="btn btn-info form control">All books</button>
+    </form>
+    <form style="display:inline" class="form-group form-inline" action="/issuedbooks" method="GET">
+        <button class="btn btn-info form control">Issued books</button>
+    </form>
+</div>
+<% include ../partials/footer %>

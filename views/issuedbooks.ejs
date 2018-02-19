@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+<div class="container">
+<h1>List of all issued books</h1>
+      <% if(foundUser.booksissued.length >0){ %>
+        <table id="customers">
+            <tr>
+              <th>Name of the Book</th>
+              <th>Issued On</th>
+              <th></th>
+            </tr>
+            <% foundUser.booksissued.forEach(function(book){ %>
+            <tr>
+              <td><%= book.name %></td>
+              <td><%= book.issuedon.toDateString() %></td>
+              <td><form style="display:inline" action="/return/<%=book._id%>?_method=PUT" method="POST">                
+                <button class="btn btn-danger" style="float:right">Return</button>
+            </form></td>
+            </tr>
+            <% }) %>
+            </table>
+      <% } else{ %>
+        <h3 style="text-align:center">No books Issued</h3>
+      <% } %>
+      <a href="/user" class="btn btn-info">Back</a>
+      </div>
+<% include ../partials/footer %>

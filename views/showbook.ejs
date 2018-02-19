@@ -1,0 +1,15 @@
+<% include ../partials/header %>
+<h1>Book is here</h1>
+<div class="ui segment" style="background:grey;margin:auto;width:40%"  >
+    <h3>Name:  <%=foundBook.name%></h3>
+    <h3>Publisher:  <%=foundBook.publisher%></h3>
+    <h3>Author:  <%=foundBook.author%></h3>
+    <h3>Total Units:  <%=foundBook.units%></h3>
+    <h3>units issued: <%=foundBook.issuedunits%> </h3>
+    <h3>units available: <%=foundBook.availableunits%></h3>
+    <form action="/update/<%=foundBook._id%>" method="GET">                
+        <button class="btn btn-primary" >Update</button>
+    </form>
+</div>
+
+<% include ../partials/footer %>
